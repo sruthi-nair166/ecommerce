@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.category-tag {
+  @apply bg-slate-100 rounded-full shadow-xl px-3 pt-1 pb-1.5 text-teal-950;
+}
