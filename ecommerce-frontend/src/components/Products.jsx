@@ -35,11 +35,15 @@ function Products({ products, setProducts }) {
     const token = localStorage.getItem("token");
 
     try {
-      await axios.post("http://localhost:3000/products", formData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      await axios.post(
+        "https://ecommerce-vhgs.onrender.com/products",
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      });
+      );
 
       alert("Product added");
 
@@ -58,7 +62,7 @@ function Products({ products, setProducts }) {
   async function fetchProducts(params = "") {
     try {
       const response = await axios.get(
-        `http://localhost:3000/products${params}`,
+        `https://ecommerce-vhgs.onrender.com/products${params}`,
       );
 
       setProducts(response.data);

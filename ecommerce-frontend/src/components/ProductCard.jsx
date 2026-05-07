@@ -29,7 +29,7 @@ function ProductCard({ product }) {
 
     try {
       await axios.put(
-        `http://localhost:3000/products/${product._id}`,
+        `https://ecommerce-vhgs.onrender.com/products/${product._id}`,
         formData,
         {
           headers: {
@@ -64,11 +64,14 @@ function ProductCard({ product }) {
     const token = localStorage.getItem("token");
 
     try {
-      await axios.delete(`http://localhost:3000/products/${product._id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      await axios.delete(
+        `https://ecommerce-vhgs.onrender.com/products/${product._id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      });
+      );
 
       window.location.reload();
     } catch (err) {

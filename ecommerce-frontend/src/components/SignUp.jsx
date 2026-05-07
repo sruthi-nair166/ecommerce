@@ -20,7 +20,7 @@ function SignUp() {
     }
 
     try {
-      await axios.post("http://localhost:3000/auth/register", {
+      await axios.post("https://ecommerce-vhgs.onrender.com/auth/register", {
         name,
         email,
         password,

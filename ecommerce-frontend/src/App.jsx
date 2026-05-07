@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/products")
+      .get("https://ecommerce-vhgs.onrender.com/products")
       .then((res) => {
         setProducts(res.data);
       })

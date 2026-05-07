@@ -13,7 +13,7 @@ function ProductDetails() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/products/${id}`)
+      .get(`https://ecommerce-vhgs.onrender.com/products/${id}`)
       .then((res) => setProduct(res.data))
       .catch((err) => console.log(err));
   }, [id]);
@@ -23,7 +23,7 @@ function ProductDetails() {
 
     axios
       .get(
-        `http://localhost:3000/analytics/recommend?category=${encodeURIComponent(
+        `https://ecommerce-vhgs.onrender.com/analytics/recommend?category=${encodeURIComponent(
           product.category,
         )}`,
       )

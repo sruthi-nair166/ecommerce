@@ -24,7 +24,7 @@ function Profile() {
     const token = localStorage.getItem("token");
 
     axios
-      .get("http://localhost:3000/users/profile", {
+      .get("https://ecommerce-vhgs.onrender.com/users/profile", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -52,7 +52,7 @@ function Profile() {
     const token = localStorage.getItem("token");
 
     axios
-      .put("http://localhost:3000/users/profile", formData, {
+      .put("https://ecommerce-vhgs.onrender.com/users/profile", formData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -81,7 +81,7 @@ function Profile() {
     const token = localStorage.getItem("token");
 
     try {
-      await axios.delete("http://localhost:3000/users/profile", {
+      await axios.delete("https://ecommerce-vhgs.onrender.com/users/profile", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

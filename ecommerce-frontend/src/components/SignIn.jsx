@@ -19,10 +19,13 @@ function SignIn() {
     }
 
     try {
-      const res = await axios.post("http://localhost:3000/auth/login", {
-        email,
-        password,
-      });
+      const res = await axios.post(
+        "https://ecommerce-vhgs.onrender.com/auth/login",
+        {
+          email,
+          password,
+        },
+      );
 
       localStorage.setItem("token", res.data.token);
 
