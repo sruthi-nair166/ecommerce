@@ -1,4 +1,4 @@
-function Categories({ filter }) {
+function Categories() {
   return (
     <div id="popular" className="px-4 sm:px-6 lg:px-12 py-10">
       <div className="flex items-center justify-between">
@@ -29,11 +29,7 @@ function Categories({ filter }) {
       </div>
 
       <div className="grid grid-cols sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 lg:gap-7 mt-5">
-        <a
-          href="#products"
-          onClick={() => filter("Electronics & Gadgets")}
-          className="relative rounded-xl overflow-hidden transition"
-        >
+        <div className="relative rounded-xl overflow-hidden transition">
           <img
             className="rounded-xl transition-transform duration-1000 hover:scale-125"
             src="./electronics.jpg"
@@ -42,12 +38,8 @@ function Categories({ filter }) {
           <span className="absolute left-3 top-3 category-tag text-teal-900">
             Electronics & Gadgets
           </span>
-        </a>
-        <a
-          href="#products"
-          onClick={() => filter("Fashion & Apparel")}
-          className="relative rounded-xl overflow-hidden transition"
-        >
+        </div>
+        <div className="relative rounded-xl overflow-hidden transition">
           <img
             className="rounded-xl transition-transform duration-1000 hover:scale-125"
             src="./fashion.png"
@@ -56,12 +48,8 @@ function Categories({ filter }) {
           <span className="absolute left-3 top-3 category-tag text-teal-900">
             Fashion & Apparel
           </span>
-        </a>
-        <a
-          href="#products"
-          onClick={() => filter("Beauty & Personal Care")}
-          className="relative rounded-xl overflow-hidden transition"
-        >
+        </div>
+        <div className="relative rounded-xl overflow-hidden transition">
           <img
             className="rounded-xl transition-transform duration-1000 hover:scale-125"
             src="./beauty.jpg"
@@ -70,12 +58,8 @@ function Categories({ filter }) {
           <span className="absolute left-3 top-3 category-tag text-teal-900">
             Beauty & Personal Care
           </span>
-        </a>
-        <a
-          href="#products"
-          onClick={() => filter("Home & Kitchen")}
-          className="relative rounded-xl overflow-hidden transition"
-        >
+        </div>
+        <div className="relative rounded-xl overflow-hidden transition">
           <img
             className="rounded-xl transition-transform duration-1000 hover:scale-125"
             src="./kitchen.png"
@@ -84,12 +68,8 @@ function Categories({ filter }) {
           <span className="absolute left-3 top-3 category-tag text-teal-900">
             Home & Kitchen
           </span>
-        </a>
-        <a
-          href="#products"
-          onClick={() => filter("Health & Fitness")}
-          className="relative rounded-xl overflow-hidden transition"
-        >
+        </div>
+        <div className="relative rounded-xl overflow-hidden transition">
           <img
             className="rounded-xl transition-transform duration-1000 hover:scale-125"
             src="./fitness.png"
@@ -98,7 +78,7 @@ function Categories({ filter }) {
           <span className="absolute left-3 top-3 category-tag text-teal-900">
             Health & Fitness
           </span>
-        </a>
+        </div>
       </div>
     </div>
   );

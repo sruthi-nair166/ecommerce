@@ -4,19 +4,15 @@ const getRecommendations = async (req, res) => {
   try {
     const { category } = req.query;
 
-    let recommendations;
+    let baseQuery = category ? { category } : {};
 
-    if (category) {
-      recommendations = await Product.find({ category });
-    } else {
-      recommendations = await Product.find();
+    let products = await Product.find(baseQuery);
 
-      recommendations = recommendations.sort(() => 0.5 - Math.random());
-    }
+    products = products.sort(() => Math.random() - 0.5).slice(0, 4);
 
     res.json({
       message: "Recommendations generated",
-      recommendations,
+      recommendations: products,
     });
   } catch (error) {
     res.status(500).json({ message: "Error generating recommendations" });

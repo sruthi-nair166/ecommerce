@@ -3,6 +3,7 @@ const router = express.Router();
 
 const {
   getProducts,
+  getProductById,
   createProduct,
   updateProduct,
   deleteProduct,
@@ -11,6 +12,7 @@ const {
 const { verifyToken, isAdmin } = require("../middleware/authMiddleware");
 
 router.get("/", getProducts);
+router.get("/:id", getProductById);
 
 router.post("/", verifyToken, isAdmin, createProduct);
 router.put("/:id", verifyToken, isAdmin, updateProduct);

@@ -9,6 +9,32 @@ const getUsers = async (req, res) => {
   }
 };
 
+const getProfile = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select("-password");
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json(user);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+const updateProfile = async (req, res) => {
+  try {
+    const updatedUser = await User.findByIdAndUpdate(req.user.id, req.body, {
+      new: true,
+    }).select("-password");
+
+    res.json(updatedUser);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 const createUser = async (req, res) => {
   try {
     if (!req.body.email) {
@@ -40,16 +66,23 @@ const updateUser = async (req, res) => {
 
 const deleteUser = async (req, res) => {
   try {
-    const user = await User.findByIdAndDelete(req.params.id);
+    const user = await User.findByIdAndDelete(req.user.id);
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
 
-    res.json({ message: "User deleted" });
+    res.json({ message: "Account deleted" });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 };
 
-module.exports = { getUsers, createUser, updateUser, deleteUser };
+module.exports = {
+  getUsers,
+  createUser,
+  updateUser,
+  deleteUser,
+  getProfile,
+  updateProfile,
+};

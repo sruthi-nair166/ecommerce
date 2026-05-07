@@ -6,6 +6,8 @@ const {
   createUser,
   updateUser,
   deleteUser,
+  getProfile,
+  updateProfile,
 } = require("../controllers/generation/userProfile");
 
 const {
@@ -13,6 +15,10 @@ const {
   isAdmin,
   isUser,
 } = require("../middleware/authMiddleware");
+
+router.get("/profile", verifyToken, getProfile);
+router.put("/profile", verifyToken, updateProfile);
+router.delete("/profile", verifyToken, deleteUser);
 
 router.get("/", verifyToken, isAdmin, getUsers);
 router.delete("/:id", verifyToken, isAdmin, deleteUser);

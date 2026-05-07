@@ -2,7 +2,10 @@ const Order = require("../../models/order");
 
 const getOrders = async (req, res) => {
   try {
-    const orders = await Order.find();
+    const orders = await Order.find({
+      userId: req.user.id,
+    });
+
     res.json(orders);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -11,13 +14,17 @@ const getOrders = async (req, res) => {
 
 const createOrder = async (req, res) => {
   try {
-    const { userId, products } = req.body;
+    const { products } = req.body;
 
-    if (!userId || !products) {
-      return res.status(400).json({ message: "Missing fields" });
+    if (!products) {
+      return res.status(400).json({ message: "Missing products" });
     }
 
-    const order = await Order.create({ userId, products });
+    const order = await Order.create({
+      userId: req.user.id,
+      products,
+    });
+
     res.json(order);
   } catch (err) {
     res.status(500).json({ message: err.message });
